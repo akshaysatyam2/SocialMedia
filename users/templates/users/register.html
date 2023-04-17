@@ -1,0 +1,42 @@
+{% extends "blog/base.html" %}
+{%  load crispy_forms_tags %}
+
+{% block content %}
+<style>
+.center {
+  margin: auto;
+  border: 3px solid black;
+  padding: 10px;
+}
+button{
+    height:5%;
+    width:15%;
+    border-radius:22px;
+}
+
+</style>
+
+<div class="center" style="width: 43%;background-color:lightgray;">
+    <h1>
+        <center>
+        Register For New User:-
+        </center>
+        <hr>
+    </h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <br>
+        <center>
+        <button type="submit" style="background-color:lightgreen; color:green;">Sign Up</button>
+            &nbsp &nbsp
+        <button type="reset" style="background-color:lightred; color:red;">Reset</button>
+        </center>
+    </form>
+    <div>
+        <hr>
+        <small> Already Registered? <a href="{% url 'login' %}">Sign In </a></small></div>
+</div>
+
+
+{% endblock content %}

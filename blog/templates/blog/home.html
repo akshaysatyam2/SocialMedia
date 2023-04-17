@@ -1,0 +1,40 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<style>
+.center {
+  margin: auto;
+  border: 3px solid black;
+  padding: 10px;
+}
+</style>
+
+{% for post in posts %}
+<br>
+<div class="center" style="width: 33%; background-color:lightgray;">
+ <h1>
+   {{post.title}}
+ </h1>
+ <h3>
+  {{post.content}}
+ </h3>
+ <hr>
+ <table>
+  <tr>
+   <td>
+    <img src="{{ post.userid.profile.image.url }}" width="25" height="25"
+             style="display: block;border-radius: 50%; align:left; border: 1px solid gray;">
+   </td>
+   <td>
+    <p>
+    By {{post.userid.first_name}}<small>(@{{post.userid}})</small>
+   <small> on {{post.timestamp|date:"F d, Y"}}</small>
+  </p>
+   </td>
+  </tr>
+ </table>
+ </div>
+<br>
+{% endfor %}
+
+
+{% endblock content %}

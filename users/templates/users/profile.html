@@ -1,0 +1,65 @@
+{% extends "blog/base.html" %}
+{%  load crispy_forms_tags %}
+
+{% block content %}
+<style>
+.center {
+  margin: auto;
+  border: 3px solid black;
+  padding: 10px;
+}
+button{
+    height:5%;
+    width:25%;
+    border-radius:22px;
+}
+
+</style>
+
+<div class="center" style="width: 50%;background-color:lightgray;">
+    <h1>
+        <center>
+        User Details:-
+        </center>
+        <hr>
+    </h1>
+
+    <div class="center" style="width: 90%;background-color:lightgray;" >
+<table style="display:block; margin:auto; width: 350px">
+        <tr>
+            <td>
+               <img src="{{ user.profile.image.url }}" width="150" height="150"
+             style="display: block;border-radius: 50%; border: 5px solid gray;">
+            </td>
+            <td>
+                <h2>
+                    {{ user.first_name }} {{ user.last_name }}
+                </h2>
+                <h4>
+                    Username : @{{ user.username }}
+                </h4>
+            </td>
+        </tr>
+    </table>
+        <hr>
+
+        <form method="post" enctype="multipart/form-data">
+        <h1>
+            Update Profile Info:
+        </h1>
+        <hr>
+        {% csrf_token %}
+        {{ u_form|crispy }}
+        {{ p_form|crispy }}
+
+        <br>
+        <center>
+        <button type="submit" style="background-color:lightgreen; color:green;">Update</button>
+            &nbsp &nbsp
+        <button type="reset" style="background-color:lightred; color:red;">Reset</button>
+        </center>
+    </form>
+    </div>
+
+</div>
+{% endblock content %}

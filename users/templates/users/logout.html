@@ -1,0 +1,27 @@
+{% extends "blog/base.html" %}
+{%  load crispy_forms_tags %}
+
+{% block content %}
+<style>
+.center {
+  margin: auto;
+  border: 3px solid black;
+  padding: 10px;
+}
+button{
+    height:5%;
+    width:15%;
+    border-radius:22px;
+}
+
+</style>
+
+<div class="center" style="width: 43%;background-color:lightgray;">
+    <h2>You have been Logged-out</h2>
+    <div>
+        <hr>
+        <small> Want to Login back? <a href="{% url 'login' %}">Login again </a></small></div>
+</div>
+
+
+{% endblock content %}

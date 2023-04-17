@@ -1,0 +1,86 @@
+ body {
+		margin: 5px;
+		font-family: 'Times New Roman', Times, serif;
+		background-color:whitesmoke;
+	}
+	.center {
+  margin: auto;
+  border: 3px solid #73AD21;
+  padding: 10px;
+}
+
+	.topnav {
+	overflow: hidden;
+	background-color: gray;
+	z-index: 2;
+	}
+
+	.topnav a {
+	float: left;
+	display: block;
+	color: whitesmoke;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+	}
+
+	.topnav a:hover {
+	background-color: whitesmoke;
+	color: black;
+	}
+
+	.topnav a.active {
+	background-color: gainsboro;
+	color: black;
+	}
+
+	.topnav .icon {
+	display: none;
+	}
+
+	@media screen and (max-width: 730px) {
+		.topnav a:not(:first-child)
+	 	{
+	 		display: none;
+	 	}
+		.topnav a.icon {
+			float: right;
+			display: block;
+		}
+	}
+
+	@media screen and (max-width: 730px) {
+		.topnav.responsive {
+			position: relative;
+		}
+		.topnav.responsive .icon {
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+		.topnav.responsive a {
+			float: none;
+			display: block;
+			text-align: left;
+		}
+	}
+
+
+    footer {
+		position: relative;
+		background-color: darkgray;
+		margin-right:5%;
+		width: 100%;
+		color: black;
+		height: 15%;
+		bottom: 0px;
+		z-index: 2;
+	}
+
+	footer h2 {
+		text-align: right;
+		left: 70%;
+		bottom: 5px;
+		padding-right: 3px;
+	}

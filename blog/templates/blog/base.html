@@ -1,0 +1,61 @@
+{% load static %}
+<html>
+<head>
+     {% if title %}
+    <title>Blog Home - {{ title}}</title>
+    {% else %}
+    <title>Blog Home</title>
+    {% endif %}
+
+	<link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+
+    </style>
+</head>
+<body>
+	<div class="topnav" id="myTopnav">
+		<a class="active">Django Test</a>
+		<a href="{%url 'blog_home'%}">Home</a>
+		<a href="{%url 'blog_about'%}">About</a>
+		{% if user.is_authenticated %}
+				<a href="{%url 'profile' %}">Profile</a>
+				<a href="{%url 'logout' %}">Logout</a>
+		{% else %}
+		<a href="{%url 'login'%}">Login</a>
+		<a href="{%url 'register'%}">Register</a>
+		{% endif %}
+		<a href="javascript:void(0);" class="icon" onclick="myResponsiveFunction()">
+			<i class="fa fa-bars"></i>
+		</a>
+	</div>
+{% if messages %}
+	{% for message in messages %}
+	<div class="alert-{{ message.tags }}">
+		{{ message }}
+	</div>
+	{% endfor %}
+{% endif %}
+	<br>
+{% block content %}
+{% endblock %}
+
+<footer>
+		<h2>
+			&copy; Copyright Rights<br> Creator: Akshay Kumar<br>
+			|<a href="mailto:akshaysatyam2003@gmail.com" target="_blank">Mail</a>|
+		</h2>
+
+	</footer>
+<script>
+		function myResponsiveFunction() {
+			var x = document.getElementById("myTopnav");
+			if (x.className === "topnav") {
+				x.className += " responsive";
+			} else {
+				x.className = "topnav";
+			}
+		}
+	</script>
+</body>
+</html>
