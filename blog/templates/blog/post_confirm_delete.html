@@ -1,0 +1,39 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+<style>
+.center {
+  margin: auto;
+  border: 3px solid black;
+  padding: 10px;
+}
+button{
+    height:5%;
+    width:15%;
+    border-radius:22px;
+}
+
+</style>
+
+<div class="center" style="width: 43%;background-color:lightgray;">
+    <h1 style="color : red;">
+        <center>
+        Delete Post:-
+        </center>
+        <hr>
+    </h1>
+    <form method="post">
+        <h1>
+            Are you sure, you want to delete the post "{{object.title}}"?
+ </h1>
+        <br>
+        <center>
+        <button type="submit" style="padding: 4px; color: red; border: 1px solid red; background-color:lightred;">Delete</button>
+            &nbsp &nbsp
+        <a style="padding: 4px; color: blue; border: 1px solid blue; background-color:lightblue;" href=" {% url 'post_detail' object.id %}">Cancel</a>
+
+        </center>
+    </form>
+
+
+{% endblock content %}

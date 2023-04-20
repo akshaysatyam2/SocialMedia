@@ -1,0 +1,46 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<style>
+.center {
+  margin: auto;
+  border: 3px solid black;
+  padding: 10px;
+}
+</style>
+
+<br>
+<div class="center" style="width: 53%; background-color:lightgray;">
+ <h1>
+   {{object.title}}
+ </h1>
+ <h3>
+  {{object.content}}
+ </h3>
+ <hr>
+ <table>
+  <tr>
+   <td>
+    <img src="{{ object.userid.profile.image.url }}" width="35" height="35"
+             style="display: block;border-radius: 50%; align:left; border:3px solid gray;">
+   </td>
+   <td>
+    <p>
+    By {{object.userid.first_name}}<small>(@{{object.userid}})</small>
+   <small> on {{object.timestamp|date:"F d, Y"}}</small>
+  </p>
+   </td>
+  </tr>
+  <tr>
+   <td colspan="2">
+    {% if object.userid == user %}
+    				<a style="padding: 4px; color: blue; border: 1px solid blue; background-color:lightblue;" href="{%url 'post_update' object.id %}">Update</a>
+    				<a style="padding: 4px; color: red; border: 1px solid red; background-color:lightred;" href="{%url 'post_delete' object.id %}">Delete</a>
+    {% endif %}
+   </td>
+  </tr>
+ </table>
+ </div>
+<br>
+
+
+{% endblock content %}

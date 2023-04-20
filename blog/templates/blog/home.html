@@ -12,7 +12,9 @@
 <br>
 <div class="center" style="width: 33%; background-color:lightgray;">
  <h1>
-   {{post.title}}
+  <a href="{% url 'post_detail' post.id %}" style="text-decoration: none; color : black;">
+      {{post.title}}
+  </a>
  </h1>
  <h3>
   {{post.content}}
