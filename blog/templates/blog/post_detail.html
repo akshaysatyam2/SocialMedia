@@ -25,8 +25,14 @@
    </td>
    <td>
     <p>
-    By {{object.userid.first_name}}<small>(@{{object.userid}})</small>
-   <small> on {{object.timestamp|date:"F d, Y"}}</small>
+     By
+     <a href="{% url 'user_posts' post.userid %}" style="text-decoration: none; color : blue;">
+     {{object.userid.first_name}}
+     <small>
+        (@{{object.userid}})
+    </small>
+      </a>
+     <small> on {{object.timestamp|date:"F d, Y"}}</small>
   </p>
    </td>
   </tr>
